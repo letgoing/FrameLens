@@ -8,10 +8,13 @@ FrameLens 是一个 Chrome 扩展：在当前标签页里，把正在访问的�
 
 ## 界面预览
 
-<p>
-  <a href="docs/images/preview.png"><img src="docs/images/preview.png" width="300" alt="模型机预览：网页在 iPhone 外框和顶部状态栏下的实际布局"></a>
-  <a href="docs/images/side-panel.png"><img src="docs/images/side-panel.png" width="280" alt="右侧设置栏：选择设备预设、调整视口宽高并应用预览"></a>
-</p>
+**日常巡查**
+
+[![iPhone 15 Pro Max 模型中的日常巡查记录，以及右侧 FrameLens 设备设置面板](docs/images/daily-patrol.jpg)](docs/images/daily-patrol.jpg)
+
+**消息通知**
+
+[![iPhone 15 Pro Max 模型中的通知列表，以及右侧 FrameLens 视口和缩放设置](docs/images/message-notifications.jpg)](docs/images/message-notifications.jpg)
 
 ## 安装与更新
 
