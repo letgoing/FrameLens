@@ -84,3 +84,9 @@ FrameLens 是一个 Chrome 扩展：在当前标签页里，把正在访问的�
 预览只在本机完成。扩展不收集或上传页面内容、浏览记录，也不需要账号。设备偏好与自定义尺寸写入 `chrome.storage.local`；本次预览的可恢复地址和状态写入 `chrome.storage.session`，不作为长期历史保存。
 
 `sidePanel` 用于原生侧栏，`activeTab` 和 `scripting` 用于在当前网页打开或更新预览，`storage` 用于上述设置和会话。HTTP(S) 站点访问权限用于页面预览和刷新恢复；本地文件需要用户另行允许。所有运行代码随仓库提供，没有远程脚本。
+
+## ☕ 请我喝杯咖啡
+
+如果 FrameLens 帮你在上线前发现了一个差点漏掉的布局问题，欢迎扫个码，请我喝杯咖啡。提建议、报问题也都是对这个小工具的支持。谢谢你！
+
+<a href="docs/images/appreciation-code.jpg"><img src="docs/images/appreciation-code.jpg" width="240" alt="FrameLens 作者的赞赏码，点击可查看原图"></a>
