@@ -4,7 +4,14 @@ FrameLens 是一个 Chrome 扩展：在当前标签页里，把正在访问的�
 
 **当前版本 1.5.0 · Chrome 114+ · 无需安装依赖或构建。** 它模拟的是网页布局视口，不是 iOS Safari 或 Android 真机。
 
-[模型机预览截图](docs/images/preview.png) · [右侧设置栏截图](docs/images/side-panel.png) · [开发与测试](docs/development.md)
+[安装与更新](#安装与更新) · [开发与测试](docs/development.md)
+
+## 界面预览
+
+<p>
+  <a href="docs/images/preview.png"><img src="docs/images/preview.png" width="300" alt="模型机预览：网页在 iPhone 外框和顶部状态栏下的实际布局"></a>
+  <a href="docs/images/side-panel.png"><img src="docs/images/side-panel.png" width="280" alt="右侧设置栏：选择设备预设、调整视口宽高并应用预览"></a>
+</p>
 
 ## 安装与更新
 
