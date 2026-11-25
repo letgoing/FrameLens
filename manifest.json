@@ -1,0 +1,82 @@
+{
+  "manifest_version": 3,
+  "name": "FrameLens 页面终端预览",
+  "short_name": "FrameLens",
+  "version": "1.5.0",
+  "minimum_chrome_version": "114",
+  "description": "在当前网页中以 iPhone、Android、iPad 或自定义分辨率进行模型机预览。",
+  "permissions": [
+    "activeTab",
+    "sidePanel",
+    "scripting",
+    "storage"
+  ],
+  "host_permissions": [
+    "http://*/*",
+    "https://*/*",
+    "file:///*"
+  ],
+  "action": {
+    "default_title": "打开或收起 FrameLens 右侧边栏",
+    "default_icon": {
+      "16": "icons/icon-16.png",
+      "32": "icons/icon-32.png",
+      "48": "icons/icon-48.png",
+      "128": "icons/icon-128.png"
+    }
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "side_panel": {
+    "default_path": "popup.html"
+  },
+  "commands": {
+    "toggle-preview": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+M",
+        "mac": "Command+Shift+M"
+      },
+      "description": "打开或关闭终端预览"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "http://*/*",
+        "https://*/*",
+        "file:///*"
+      ],
+      "js": [
+        "devices.js",
+        "core/config.js",
+        "core/state.js",
+        "core/runtime.js",
+        "preview/styles.js",
+        "preview/template.js",
+        "preview/sync.js",
+        "preview/navigation.js",
+        "preview/status-theme.js",
+        "preview/view.js",
+        "content.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "icons/icon-128.png"
+      ],
+      "matches": [
+        "<all_urls>"
+      ]
+    }
+  ],
+  "icons": {
+    "16": "icons/icon-16.png",
+    "32": "icons/icon-32.png",
+    "48": "icons/icon-48.png",
+    "128": "icons/icon-128.png"
+  }
+}

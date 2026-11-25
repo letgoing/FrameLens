@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FrameLens 页面终端预览</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="brand">
+        <img class="brand-mark" src="icons/icon-128.png" alt="" aria-hidden="true" />
+        <div class="brand-copy">
+          <div class="brand-title-row">
+            <h1>FrameLens</h1>
+            <span class="version"></span>
+          </div>
+        </div>
+        <div class="panel-header-actions">
+          <button id="compactToggleBtn" class="panel-control-button" type="button" title="收起设置" aria-label="收起设置" aria-expanded="true">
+            <svg viewBox="0 0 20 20" aria-hidden="true">
+              <path d="m6.5 12.5 3.5-3.5 3.5 3.5"></path>
+            </svg>
+          </button>
+          <button id="collapsePanelBtn" class="panel-control-button" type="button" title="收起右侧边栏" aria-label="收起右侧边栏">
+            <svg viewBox="0 0 20 20" aria-hidden="true">
+              <rect x="3" y="4" width="14" height="12" rx="2"></rect>
+              <path d="M13 4v12M10.5 10H6M8 8.5 6.5 10 8 11.5"></path>
+            </svg>
+          </button>
+        </div>
+      </header>
+
+      <div class="page-context">
+        <span class="page-dot" aria-hidden="true"></span>
+        <span id="pageLabel">正在读取当前页面…</span>
+      </div>
+
+      <section class="collapsed-summary" aria-label="当前终端摘要">
+        <span class="summary-device" aria-hidden="true">
+          <i></i>
+        </span>
+        <span class="summary-copy">
+          <small>当前终端</small>
+          <strong id="summaryDeviceName">iPhone 15 Pro Max</strong>
+          <span id="summaryViewport">430 × 932 · 竖屏</span>
+        </span>
+        <button id="expandSummaryBtn" type="button">展开设置</button>
+      </section>
+
+      <section class="panel" aria-labelledby="deviceHeading">
+        <div class="section-heading">
+          <div>
+            <h2 id="deviceHeading">选择终端</h2>
+          </div>
+          <span id="deviceCount" class="count-badge"></span>
+        </div>
+
+        <div id="quickDevices" class="quick-devices" aria-label="常用设备"></div>
+
+        <label class="field">
+          <span>全部设备</span>
+          <span class="select-wrap">
+            <select id="deviceSelect" aria-label="选择设备预设"></select>
+          </span>
+        </label>
+
+        <div id="deviceMeta" class="device-meta" aria-live="polite">
+          <div>
+            <span>CSS 视口</span>
+            <strong id="viewportMeta">430 × 932</strong>
+          </div>
+          <i></i>
+          <div>
+            <span>物理像素</span>
+            <strong id="physicalMeta">1290 × 2796</strong>
+          </div>
+          <i></i>
+          <div>
+            <span>DPR</span>
+            <strong id="dprMeta">3×</strong>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel compact" aria-labelledby="sizeHeading">
+        <div class="section-heading inline">
+          <div>
+            <h2 id="sizeHeading">分辨率与方向</h2>
+          </div>
+          <div class="orientation-switch" role="group" aria-label="屏幕方向">
+            <button id="portraitBtn" class="icon-button active" type="button" title="竖屏" aria-label="切换为竖屏">
+              <svg viewBox="0 0 20 20" aria-hidden="true">
+                <rect x="6" y="2.5" width="8" height="15" rx="2"></rect>
+                <path d="M8.5 5h3"></path>
+              </svg>
+            </button>
+            <button id="landscapeBtn" class="icon-button" type="button" title="横屏" aria-label="切换为横屏">
+              <svg viewBox="0 0 20 20" aria-hidden="true">
+                <rect x="2.5" y="6" width="15" height="8" rx="2"></rect>
+                <path d="M5 8.5v3"></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="size-row">
+          <label class="number-field">
+            <span>宽度</span>
+            <span class="number-control">
+              <input id="widthInput" type="number" min="240" max="2560" step="1" value="430" inputmode="numeric" />
+              <b>px</b>
+            </span>
+          </label>
+
+          <button id="swapBtn" class="swap-button" type="button" title="交换宽高" aria-label="交换宽度和高度">
+            <svg viewBox="0 0 20 20" aria-hidden="true">
+              <path d="M6 4 3.5 6.5 6 9"></path>
+              <path d="M4 6.5h9.5a2 2 0 0 1 2 2v.5"></path>
+              <path d="m14 16 2.5-2.5L14 11"></path>
+              <path d="M16 13.5H6.5a2 2 0 0 1-2-2V11"></path>
+            </svg>
+          </button>
+
+          <label class="number-field">
+            <span>高度</span>
+            <span class="number-control">
+              <input id="heightInput" type="number" min="240" max="2560" step="1" value="932" inputmode="numeric" />
+              <b>px</b>
+            </span>
+          </label>
+        </div>
+
+        <div class="two-column">
+          <label class="field">
+            <span>模型外框</span>
+            <span class="select-wrap">
+              <select id="frameSelect">
+                <option value="iphone">iPhone 灵动岛</option>
+                <option value="android">Android 打孔屏</option>
+                <option value="tablet">平板</option>
+                <option value="browser">桌面浏览器</option>
+                <option value="none">无外框</option>
+              </select>
+            </span>
+          </label>
+
+          <label class="field">
+            <span>显示比例</span>
+            <span class="select-wrap">
+              <select id="scaleSelect">
+                <option value="fit">自动适配</option>
+                <option value="1">100%</option>
+                <option value="0.9">90%</option>
+                <option value="0.75">75%</option>
+                <option value="0.5">50%</option>
+              </select>
+            </span>
+          </label>
+        </div>
+
+        <fieldset id="modelPosition" class="model-position">
+          <legend>模型位置</legend>
+          <div class="position-options">
+            <label><input type="radio" name="position" value="left" class="sr-only" /><span>靠左</span></label>
+            <label><input type="radio" name="position" value="center" class="sr-only" checked /><span>居中</span></label>
+            <label><input type="radio" name="position" value="right" class="sr-only" /><span>靠右</span></label>
+          </div>
+        </fieldset>
+
+        <div class="live-sync-row">
+          <span class="live-sync-copy">
+            <strong>状态栏底部分隔线</strong>
+          </span>
+          <label class="switch-control" title="显示或隐藏状态栏底部分隔线">
+            <input id="statusBarDividerInput" type="checkbox" />
+            <span aria-hidden="true"></span>
+            <span class="sr-only">显示状态栏底部分隔线</span>
+          </label>
+        </div>
+
+        <div class="live-sync-row">
+          <span class="live-sync-copy">
+            <strong>实时同步预览</strong>
+          </span>
+          <label class="switch-control" title="开启或暂停实时同步">
+            <input id="liveSyncInput" type="checkbox" checked />
+            <span aria-hidden="true"></span>
+            <span class="sr-only">开启实时同步预览</span>
+          </label>
+        </div>
+
+        <div class="save-size-row">
+          <label class="custom-name">
+            <span class="sr-only">自定义尺寸名称</span>
+            <input id="customNameInput" type="text" maxlength="24" placeholder="尺寸名称（可选）" />
+          </label>
+          <button id="saveCustomBtn" class="text-button" type="button">
+            <svg viewBox="0 0 20 20" aria-hidden="true">
+              <path d="M10 3v14M3 10h14"></path>
+            </svg>
+            保存尺寸
+          </button>
+          <button id="deleteCustomBtn" class="delete-button" type="button" hidden>删除</button>
+        </div>
+      </section>
+
+      <div id="status" class="status" role="status" aria-live="polite"></div>
+
+      <footer class="actions">
+        <button id="closeBtn" class="secondary-button" type="button">关闭预览</button>
+        <button id="openBtn" class="primary-button" type="button">
+          <span>在当前页面预览</span>
+          <svg viewBox="0 0 20 20" aria-hidden="true">
+            <path d="M4 10h11M11 6l4 4-4 4"></path>
+          </svg>
+        </button>
+      </footer>
+
+    </main>
+
+    <script src="devices.js"></script>
+    <script src="core/config.js"></script>
+    <script src="core/state.js"></script>
+    <script src="core/runtime.js"></script>
+    <script src="popup.js"></script>
+  </body>
+</html>
