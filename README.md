@@ -87,6 +87,6 @@ FrameLens 是一个 Chrome 扩展：在当前标签页里，把正在访问的�
 
 ## ☕ 请我喝杯咖啡
 
-如果 FrameLens 帮你在上线前发现了一个差点漏掉的布局问题，欢迎扫个码，请我喝杯咖啡。提建议、报问题也都是对这个小工具的支持。谢谢你！
+如果 FrameLens 对你有帮助，欢迎扫个码，请我喝杯咖啡。提建议、报问题也都是对这个小工具的支持。谢谢你！
 
 <a href="docs/images/appreciation-code.jpg"><img src="docs/images/appreciation-code.jpg" width="240" alt="FrameLens 作者的赞赏码，点击可查看原图"></a>
